@@ -1,0 +1,32 @@
+{
+  "name": "react-hydrate-viewport",
+  "version": "0.1.0",
+  "description": "Higher order React component for partial hydration on client side after SSR",
+  "author": "Francisco Tavares de Lima Neto",
+  "devDependencies": {
+    "rollup": "2.33.3"
+  },
+  "peerDependencies": {
+    "react": ">= 16.8"
+  },
+  "keywords": [
+    "react",
+    "ssr",
+    "hydrate"
+  ],
+  "license": "MIT",
+  "main": "index.cjs.js",
+  "module": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/franciscotln/react-hydrate-viewport.git"
+  },
+  "scripts": {
+    "build": "rollup $npm_package_module -o $npm_package_main --f cjs -e react"
+  },
+  "files": [
+    "index.js",
+    "index.cjs.js",
+    "*.d.ts"
+  ]
+}
