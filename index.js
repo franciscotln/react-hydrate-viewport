@@ -8,20 +8,25 @@ export default class LazyHydrate extends Component {
   }
 
   componentDidMount() {
-    this.observer = new IntersectionObserver((entries, observerRef) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting || entry.intersectionRatio > 0) {
-          this.setState({ hydrated: true });
-          observerRef.unobserve(entry.target);
-        }
-      });
-    }, { rootMargin: this.props.rootMargin || '200px' });
+    const { lazy = true } = this.props;
+    if (lazy) {
+      this.observer = new IntersectionObserver((entries, observerRef) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting || entry.intersectionRatio > 0) {
+            this.setState({ hydrated: true });
+            observerRef.disconnect();
+          }
+        });
+      }, { rootMargin: this.props.rootMargin || '200px' });
 
-    this.observer.observe(this.ref.current);
+      this.observer.observe(this.ref.current);
+    }
   }
 
   componentWillUnmount() {
-    this.observer.unobserve(this.ref.current);
+    if (this.observer) {
+      this.observer.disconnect();
+    }
   }
 
   render() {
