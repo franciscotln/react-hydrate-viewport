@@ -22,7 +22,7 @@
     "url": "git+https://github.com/franciscotln/react-hydrate-viewport.git"
   },
   "scripts": {
-    "build": "rollup $npm_package_module -o $npm_package_main --f cjs -e react"
+    "build": "rollup index.js -o index.cjs.js --f cjs -e react"
   },
   "files": [
     "index.js",
