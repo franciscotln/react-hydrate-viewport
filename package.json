@@ -1,6 +1,6 @@
 {
   "name": "react-hydrate-viewport",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "Higher order React component for partial hydration on client side after SSR",
   "author": "Francisco Tavares de Lima Neto",
   "devDependencies": {
